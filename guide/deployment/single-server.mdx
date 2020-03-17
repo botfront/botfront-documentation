@@ -1,26 +1,16 @@
 ---
-name: Server Installation
-route: /docs/deployment/installation/
-menu: Installation & Deployment
+name: Single server
+route: /docs/deployment/installation/single-server
+menu: Server installation
 meta:
   - name: description
-    content: "Install Botfront on a server or a cluster"
+    content: "Install Botfront on a single virtual machine"
   - name: keywords
     content: botfront installation deployment
 ---
 
-# Server Installation
 
-Botfront comes as a collection of services delivered as Docker images that you need to orchestrate so they can work together. You have different options.
-
-## Kubernetes / Openshift
-
-Deploying on Kubernetes or Openshift is by far the best option if you are familiar with one of them.
-We provide Helm charts to facilitate the installation and deployment:
-http://github.com/botfront/botfront-helm
-
-
-## Single server
+## Single server (VM)
 
 An alternative option is to deploy all the services on a single machine. You can get a virtual machine from the Cloud Provider of your choice. We recommend a machine with at least 1 CPU and 2 Gb of RAM
 
