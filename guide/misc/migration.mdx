@@ -78,3 +78,34 @@ nlg:
 6. Restart Rasa with `botfront restart rasa`
 7. Train
 8. You're done, have fun :)
+
+
+
+### 0.21.x -> 0.22.x
+
+#### Breaking changes
+
+We significantly changed how conversations are stored and retrieved from rasa, they now use graphql:
+The old trackerstore that was using the api is now deprecated.
+
+
+#### Upgrading a project
+
+1. Go to `Settings > Endpoints`
+   If you are running with the default CLI configuration, replace:
+```yaml
+tracker_store:
+  store_type : 'rasa_addons.core.tracker_stores.AnalyticsTrackerStore'
+  url: "http://botfront-api:8080/"
+```
+
+with:
+
+```yaml
+tracker_store:
+  store_type : 'rasa_addons.core.tracker_stores.botfront.BotfrontTrackerStore'
+  url: "http://botfront:3000/graphql" # This should be the same host as the Botfront app
+```
+2. Restart Rasa with `botfront restart rasa`
+3. You're done, have fun :)
+
