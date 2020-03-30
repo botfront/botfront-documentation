@@ -64,6 +64,8 @@ The following table list environment variables used to configure logging within 
 | `APPLICATION_API_LOG_TRANSPORT` | Where the api application log are written                                                                                                                                  | console, stackdriver               | console              |
 | `APPLICATION_API_LOG_LEVEL`     | Minimal severity of logs for the api                                                                                                                                       | error, warn, info, debug           | info                 |
 | `MAX_LOG_BODY_LENGTH`           | Maximum length of stringified `body` in logged request or response from the api                                                                                            | Any positive integer               | 100                  |
+| `AUDIT_LOG_TRANSPORT`           | Where the audit log are written (Only on Entreprise-edition)                                                                                                               | console, stackdriver               | console              |
+| `AUDIT_LOGGER_NAME`             | The name of the audit logger in Stackdriver (Only on Entreprise-edition)                                                                                                   | Any string                         | botfront_log_audit   |
 
 ## Volumes
 
