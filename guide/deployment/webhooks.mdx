@@ -24,22 +24,17 @@ The payload sent to the webhook will have the following specification:
 
 #### Request
 
-If setThe payload sent to the webhook will have the following specification:
+If set, the payload sent to the webhook will have the following specification:
 
 ```json
 {
-    "field": "example value" # Value can be x,y,z
+    "projectId": "bf" # id of your project
 }
 ```
 
 #### Response
 
-
-```json
-{
-    "field": "example value" # Any comment or explanation
-}
-```
+This route does not return a json. Botfront only expect the http status of the call to your restart rasa
 
 ### Upload image
 
