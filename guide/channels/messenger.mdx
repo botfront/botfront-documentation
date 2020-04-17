@@ -1,7 +1,7 @@
 ---
 name: Facebook Messenger
 route: /docs/channels/messenger
-menu: Channels
+menu: Configuring channels
 meta:
 - name: description
   content: Deploy your Rasa assistant with Botfront on Facebook Messenger.
@@ -62,7 +62,7 @@ rasa_addons.core.channels.messenger.FBmessenger:
     ![image alt text](../../images/messenger_channel_step11.png)
 
 ```yaml
-rasa_addons.core.channels.messenger.FBmessenger:
+rasa_addons.core.channels.messenger.FBmessengerInput:
   page-access-token: <your token>
   secret: <your secret>
   ...
@@ -71,7 +71,7 @@ rasa_addons.core.channels.messenger.FBmessenger:
 11. Add a verify token. It's a string of your choice, just pick something not too obvious.
 
 ```yaml
-rasa_addons.core.channels.messenger.FBmessenger:
+rasa_addons.core.channels.messenger.FBmessengerInput:
   page-access-token: <your token>
   secret: <your secret>
   verify: <your verify token>
