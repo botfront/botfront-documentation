@@ -1,0 +1,88 @@
+---
+name: Server installation
+route: /docs/deployment/installation/
+menu: Deployment
+meta:
+  - name: description
+    content: "Integrate Botfront with your environment"
+  - name: keywords
+    content: botfront webhooks
+---
+
+# webhooks
+
+To map Botfront features with the specificity of your infrastructure, you can implement webhooks that will be invoked by Botfront.
+
+
+## Restart Rasa
+
+If set, this webhook will be invoked when a user edits `endpoints` or `credentials`, or performs any action requiring Rasa to restart.
+
+The payload sent to the webhook will have the following specification:
+
+#### Request
+
+If setThe payload sent to the webhook will have the following specification:
+
+```json
+{
+    "field": "example value" # Value can be x,y,z
+}
+```
+
+#### Response
+
+
+```json
+{
+    "field": "example value" # Any comment or explanation
+}
+```
+
+### Upload image
+
+If set, an upload widget will be available in the dialog builder. The webhook will be invoked when a user uploads an image.
+
+#### Request
+
+If setThe payload sent to the webhook will have the following specification:
+
+```json
+{
+    "field": "example value" # Value can be x,y,z
+}
+```
+
+#### Response
+
+The service must return a response with the following specification:
+
+```json
+{
+    "field": "example value" # Any comment or explanation
+}
+```
+
+## Delete image
+
+If set, an upload widget will be available in the dialog builder. The webhook will be invoked when a user deletes an image.
+
+#### Request
+
+If setThe payload sent to the webhook will have the following specification:
+
+```json
+{
+    "field": "example value" # Value can be x,y,z
+}
+```
+
+### Response
+
+The service must return a response with the following specification:
+
+```json
+{
+    "field": "example value" # Any comment or explanation
+}
+```
