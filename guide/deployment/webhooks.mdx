@@ -11,7 +11,7 @@ meta:
 
 Available in: <Premium plan="Cloud Pro" /> <Premium plan="Cloud Premium" /> <Premium plan="Enterprise Edition" />
 
-# webhooks
+# Webhooks
 
 To map Botfront features with the specificity of your infrastructure, you can implement webhooks that will be invoked by Botfront.
 
@@ -20,15 +20,11 @@ To map Botfront features with the specificity of your infrastructure, you can im
 
 If set, this webhook will be invoked when a user edits `endpoints` or `credentials`, or performs any action requiring Rasa to restart.
 
-The payload sent to the webhook will have the following specification:
-
 #### Request
-
-If set, the payload sent to the webhook will have the following specification:
 
 ```js
 {
-    "projectId": "bf" // id of your project
+    "projectId": string
 }
 ```
 
@@ -42,44 +38,37 @@ If set, an upload widget will be available in the dialog builder. The webhook wi
 
 #### Request
 
-If setThe payload sent to the webhook will have the following specification:
-
 ```js
 {
-    "field": "example value" // value can be x,y,z
+    "projectId": string,
+    "data": string, // image encoded in base64
+    "mimeType": string,
+    "language": string,
+    "responseId": string // template name followed by unix timestamp, e.g. utter_get_started_1588107073256
 }
 ```
 
 #### Response
 
-The service must return a response with the following specification:
-
 ```js
 {
-    "field": "example value" // any comment or explanation
+    "uri": string // the publicly accessible URI for the asset just received
 }
 ```
 
 ## Delete image
 
-If set, an upload widget will be available in the dialog builder. The webhook will be invoked when a user deletes an image.
+The webhook will be invoked by Botfront when an image URL is no longer used in a response. The request will be sent whether or not the resource actually exists on the server.
 
 #### Request
 
-If setThe payload sent to the webhook will have the following specification:
-
 ```js
 {
-    "field": "example value" // value can be x,y,z
+    "projectId": string,
+    "uri": string // the publicly accessible URI for the asset to be deleted
 }
 ```
 
 ### Response
 
-The service must return a response with the following specification:
-
-```js
-{
-    "field": "example value" // any comment or explanation
-}
-```
+Botfront expects a 204 success response, and a 404 if ressource was not found. Any other response may signal an error to the user in the future.
