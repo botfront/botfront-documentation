@@ -15,7 +15,8 @@
   {
     "name": "Authoring conversations",
     "menu": [
-      "Building conversations",
+      "Conversations basics",
+      "Entities and slots",
       "Conversation flows",
       "Disambiguating user input",
       "Advanced features"
