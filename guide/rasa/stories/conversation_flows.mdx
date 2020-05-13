@@ -39,15 +39,9 @@ Here we want to implement the following use case: a user can ask to book in _eco
 
 ![Branch 1: book-eco](../../../images/branching_cob_4.png)
 
-<Important type="warning" title="But wait, that doesn't work!">
-
-If you train and try this story, you'll see that if you type `/book` the agent will utter `utter_which_class` as expected, but if you type `/book{"class":"eco"}` or `/book{"class":"business"}` the response will be random. The reason is that if the value of the entity is not stored somewhere, Rasa only differentiates the flow looking at if the entity `class` exists or not in the user utterance.
-
-If you want the stories above to work, you need to **create a slot**. In this case we're going to create a **categorical** slot, and add the categories **business** and **eco**. Then retrain and it should work.
+You must also create a corresponding categorical slot:
 
 ![Categorical slot](../../../images/branching_7.png)
-
-</Important>
 
 ### Branching with slots
 

@@ -1,5 +1,5 @@
 ---
-name: Building conversations
+name: Conversations basics
 route: /docs/rasa/conversation-builder/
 menu: Authoring conversations
 meta:
@@ -9,156 +9,149 @@ meta:
     content: rasa ui frontend
 ---
 
-# Building conversations
+# Conversations basics
 
-## A visual editor for stories
+Botfront is a fully featured conversational platform with intuitive interfaces to create context-aware virtual assistants.
 
-Botfront is based on Rasa and provides interfaces to visually and efficiently build and edit Rasa stories.
-Stories are the building blocks of conversation flows. If you don't know Rasa, it's a framework using a simbolic language to design conversations.
+Botfront offers advanced Natural Language Understanding capabilities in any language and context driven dialogue management.
+Botfront integrates Rasa, a powerful and popular open source conversational AI framework.
 
-- You can visually create real conversation examples for your virtual assistant, with an experience very similar to a regular chat.
+Those capabilities are privided by a deep integration with [Rasa](https://github.com/rasaHQ/rasa), an open source library featuring the most advanced open source conversational AI technology.
 
-- You can create your flows, branch them, link conversations to each other (or even with themselves depending on the situation).
 
-- You can annotate user utterances and add them to your training data, saving a lot of time while developing your model. Bot responses will also be automatically created and saved, taking away the need of filling them up with content elsewhere.
+## Getting started
 
-![Simple stories](../../../images/stories_cob_1.png)
 
-## Sample conversation flow
+Similarly to human-to-human interactions, human-to-machine interactions are based on dialogue turns.
+A turn consists in a **user input** followed by a **virtual assistant response**.
 
-This is the initial screen when you create a new story in the conversation builder. Depending on the flow you want, it gives all the options to start from.
+In Botfront, you design automated conversations in segments called **stories**. 
 
-![COB initial](../../../images/cob_1.png)
+### A very simple conversation
 
-### User utterance
+Let's start with a simple example, greetings:
 
-A story almost always starts with a user utterance (unless you are creating a [destination story for linking](/docs/rasa/conversation-flows#linking-stories)).
+<video autoplay muted loop width="100%" controls>
+  <source src="../../../videos/conversation_quickstart1.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-![COB user: text](../../../images/cob_2.png)
+Let's have a closer look to what happened in that video:
 
-Here we select the text option, payload will be shown in a later step:
+1. We created a new story and give it the name _Greetings_. This name is for reference only.
+2. We defined Start the story with a user utterance (_Hello_)
+3. We annotated the utterance with the intent `greet`.
+4. We set the response given by the assistant.
 
-![COB user: text input empty](../../../images/cob_3.png)
 
-The user says **Hi there**.
-
-![COB user: text input](../../../images/cob_4.png)
-
-If you have a model (usually the case), the input would be parsed through and your model will annotate the utterance accordingly (as it would happen in New utterances in Incoming). If you don't have a model yet, an intent won't be attained and you would need to select/create one in order to save.
-
-![COB user: text parsed](../../../images/cob_5.png)
-
-We can see existing intents to select from or create a new intent by clicking on the intent label.
-
-![COB user: intents](../../../images/cob_6.png)
-
-We can make as many changes as we want for intents, annotate entities (if applicable) and save the user utterance.
-
-![COB user: saved](../../../images/cob_6_2.png)
-
-<Important type="warning" title="Note">
-
-You cannot edit a user utterance after you save it. If you want to change something, you will need to delete it and add a new one in the same place.
+> You cannot edit a user utterance after you save it. If you want to change something, you will need to delete it and add a new one in the same place.
 
 When you save a user utterance, it is also added to your training data to easily develop and enhance your model. If you delete it in the conversation builder, it will still remain in your training data. If you completely want to remove a user utterance from everywhere, you will need to manually delete it from your training data as well.
 
+### Improve Natural Language Understanding
+
+We can't expect a user to always greet with _Hello_.
+There are many ways to greet and we want our virtual assistant to understand as many as possible.
+
+We need to teach our assistant many ways of greeting:
+our story isn't just about replying to someone saying _Hello_, it is about replying to all users greeting your AI assistant.
+
+Click on the user utterance and add your examples as shown below:
+
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart2.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
+
+
+<Important title='How many examples should I add?'>
+A good starting point is 10-15 examples per intent.
+You can always add more examples later, either from here or from the incoming section
+to use examples from real conversations.
 </Important>
 
-### Bot responses
+**An assistant needs at least two intents.** Let's add a second story with farewells:
 
-In our sample flow, we will continue with a bot response. Depending on your conversational needs, a slot or an action might come here as well. There cannot be two consecutive user utterances.
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart3.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-Here we continue with a text response:
+### Training and testing
 
-![COB bot: responses](../../../images/cob_7.png)
+You can now train your bot and talk start chatting.
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart4.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-We can type a simple text response in the bubble, just like chatting. The field would work with Markdown syntax as well.
+## Handling different conversation paths with branches
 
-![COB bot: text response](../../../images/cob_8.png)
+Conversations can take different paths. Let's continue our greetings conversation.
+But instead of just greeting the user back, let's ask how they feel and handle positive and negative answers.
 
-We continue with a quick reply response this time.
+We'll use branches to handle the different scenarios, (feeling good vs. feeling bad), as shown in the following video:
 
-![COB bot: quick reply](../../../images/cob_9.png)
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart5.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-![COB bot: quick reply](../../../images/cob_10.png)
+A few things to keep in mind when using branches:
+- Branches must always started with user utterances, (or as we'll se later with slots directives) but never with bot responses.
+- You can set names to branches (in the video we left the default names _New branch_X). The name is only for your reference doesn't impact the flow of your conversation.
 
-Here we can set as many buttons as we want, which would be presented as clickable options to the user in the chat. They can have two types: **Postback** and **Web URL**:
+## Using responses types with buttons
 
-- **Postback** would post the button payload back to the chat, as if the user "said" it. You just have to select the combination of intent and entities that you would like the bot to receive when a user clicks on the button.
-- **Web URL** will open the URL put in the button settings.
+Botfront comes with different response types.
+In the examples above we used text responses, but in many cases you want to offer easy options to users.
 
-![COB bot: quick reply](../../../images/cob_11.png)
+In the example above, we could provide two buttons _Feel great_ and _Feel bad_.
 
-![COB bot: quick reply](../../../images/cob_12.png)
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart6.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-![COB bot: quick reply](../../../images/cob_13.png)
+<Important title='Understanding payloads'>
+Remember that a conversation is made of turns and a turn is a <strong>user input</strong> followed by an <strong>assistant response</strong>.
+When we say <i>I feel great</i>, the first step is extract the intent: <strong>feel_good</strong>.
+The the dialogue engine uses the intent to determine the appropriate response.
 
-### Branching
+When a user clicks a button, it is the equivalent of saying something, except we can skip the natural language understanding step.
 
-Given that we are presenting two options to the user, it would be good to branch the conversation here and continue with two separate flows.
-
-![COB branch](../../../images/cob_14.png)
-
-Here we continue with the payload option, in order to exactly match the payload we set for the button:
-
-![COB user: good payload](../../../images/cob_15.png)
-
-We can either create a new intent, or select an existing one.
-
-![COB user: good payload](../../../images/cob_16.png)
-
-We select the `chitchat.i_am_good` intent.
-
-![COB user: chitchat.i_am_good](../../../images/cob_17.png)
-
-<Important type="tip">
-
-Even though the **payload** option is selected, you might see content from an example that exists in your model, with the exact same payload. This will not affect the performance of the story or anything related with the buttons.
-
+The payload is just the underlying intent <strong>feel_good</strong>.
 </Important>
 
-We do the same thing for the **Sad** branch.
+## Handling feedback and other converging flows with links
 
-![COB user: chitchat.i_am_sad](../../../images/cob_18.png)
+A common flow consists in asking a user if they are satisfied with a response or a process.
+You can use the links feature for that as follows:
 
-![COB user: chitchat.i_am_sad](../../../images/cob_19.png)
+1. Create a new story called, for example, _Feedback_
+2. This story should start with a bot response, as the bot will follow-up with it after handling another user request.
+3. Link other stories to the new _Feedback_ story from the footer menu.
 
-And voilà! We have created a simple yet powerful story with branches. Now it's time to train your model and try it out!
+The following video shows an example:
 
-### Annotating with entities
+<video autoplay muted loop width="740" controls>
+  <source src="../../../videos/conversation_quickstart7.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
 
-Here you can see an example of how you can use entities while annotating in the conversation builder:
+## Understanding context
 
-![Entity annotation flow](../../../images/annotation_entity_flow_cob_1.png)
+The best way to understand context is to think about how we, humans, handle it.
+When we respond to someone else's _utterance_, we respond considering the history we have with that person.
+We remember facts, about the other person, but also the previous turns of the conversation.
 
-<Important type="tip">
+We'll address remembering facts in the slots section. Here, let's discuss remembering previous turns.
 
-Simply highlight the part (entity value) you want to annotate. From the popup, you may create a new entity, or select from an existing one in your model.
+If you say _Hi_ three times in a row to someone, the third response might be different from the first one.
 
-</Important>
+The following video shows how to replicate this with your assistant.
 
-### Slots and actions
-
-#### Slots
-
-Depending on your conversation flow, you can use slots. Slots can be used in the beginning of branches. Here is a simple example:
-
-![COB slot](../../../images/cob_slot_1.png)
-
-![COB slot](../../../images/cob_slot_2.png)
-
-#### Actions
-
-If you have [custom actions](/docs/rasa/custom-actions/), you can use them in your conversation as follows:
-
-![COB action](../../../images/cob_action_1.png)
-
-![COB action](../../../images/cob_action_2.png)
-
-## Context aware assistants
-
-Botfront exposes all the contextual power of Rasa. The context of a conversation is the knowledge of all the passed events of this conversation. In other words, you should be able to determine the response of a virtual assistant depending on various past events of the conversations, not just the last user utterance. The conversation below illustrates a very simple example of a context aware conversation. If a user repeats several times the exact same question, you might decide to treat that differently.
-
-![Context story](../../../images/stories_cob_2.png)
-
-In the next section you will see other examples of context aware conversations, for example using slots to branch a conversation.
+<video autoplay muted loop width="100%" controls>
+  <source src="../../../videos/conversation_quickstart8.m4v" type="video/mp4"/>
+  Your browser does not support the video tag.
+</video>
