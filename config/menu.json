@@ -15,9 +15,10 @@
   {
     "name": "Authoring conversations",
     "menu": [
-      "Conversations basics",
-      "Entities and slots",
-      "Conversation flows",
+      "Getting started",
+      "Intents and entities",
+      "Evaluate understanding",
+      "Conversation context",
       "Disambiguating user input",
       "Advanced features"
     ]
@@ -26,15 +27,6 @@
     "name": "Conversational interactions"
   }
   ,
-  {
-    "name": "Natural language understanding",
-    "menu": [
-      "Intents and Entities",
-      "Add Training data",
-      "Training intents and entities",
-      "Evaluation"
-    ]
-  },
   {
     "name": "Server installation",
     "menu": ["Kubernetes / Openshift", "Single server", "Configuration"]
