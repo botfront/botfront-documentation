@@ -1,5 +1,5 @@
 ---
-name: Conversations basics
+name: Getting started
 route: /docs/rasa/conversation-builder/
 menu: Authoring conversations
 meta:
@@ -9,27 +9,22 @@ meta:
     content: rasa ui frontend
 ---
 
-# Conversations basics
+# Getting started
 
 Botfront is a fully featured conversational platform with intuitive interfaces to create context-aware virtual assistants.
 
 Botfront offers advanced Natural Language Understanding capabilities in any language and context driven dialogue management.
-Botfront integrates Rasa, a powerful and popular open source conversational AI framework.
 
-Those capabilities are privided by a deep integration with [Rasa](https://github.com/rasaHQ/rasa), an open source library featuring the most advanced open source conversational AI technology.
+Botfront is deeply integrated with [Rasa](https://github.com/rasaHQ/rasa), an open source library featuring the most advanced open source conversational AI technology.
 
-
-## Getting started
-
+## Your first dialogue
 
 Similarly to human-to-human interactions, human-to-machine interactions are based on dialogue turns.
 A turn consists in a **user input** followed by a **virtual assistant response**.
 
 In Botfront, you design automated conversations in segments called **stories**. 
 
-### A very simple conversation
-
-Let's start with a simple example, greetings:
+Let's start with a simple example, A user greets the virtual assistant and the bot answers.
 
 <video autoplay muted loop width="100%" controls>
   <source src="../../../videos/conversation_quickstart1.m4v" type="video/mp4"/>
@@ -43,12 +38,11 @@ Let's have a closer look to what happened in that video:
 3. We annotated the utterance with the intent `greet`.
 4. We set the response given by the assistant.
 
-
 > You cannot edit a user utterance after you save it. If you want to change something, you will need to delete it and add a new one in the same place.
 
 When you save a user utterance, it is also added to your training data to easily develop and enhance your model. If you delete it in the conversation builder, it will still remain in your training data. If you completely want to remove a user utterance from everywhere, you will need to manually delete it from your training data as well.
 
-### Improve Natural Language Understanding
+## Improving Natural Language Understanding
 
 We can't expect a user to always greet with _Hello_.
 There are many ways to greet and we want our virtual assistant to understand as many as possible.
@@ -63,7 +57,6 @@ Click on the user utterance and add your examples as shown below:
   Your browser does not support the video tag.
 </video>
 
-
 <Important title='How many examples should I add?'>
 A good starting point is 10-15 examples per intent.
 You can always add more examples later, either from here or from the incoming section
@@ -77,7 +70,7 @@ to use examples from real conversations.
   Your browser does not support the video tag.
 </video>
 
-### Training and testing
+## Training your assistant
 
 You can now train your bot and talk start chatting.
 <video autoplay muted loop width="740" controls>
@@ -101,7 +94,7 @@ A few things to keep in mind when using branches:
 - Branches must always started with user utterances, (or as we'll se later with slots directives) but never with bot responses.
 - You can set names to branches (in the video we left the default names _New branch_X). The name is only for your reference doesn't impact the flow of your conversation.
 
-## Using responses types with buttons
+## Adding buttons to your responses
 
 Botfront comes with different response types.
 In the examples above we used text responses, but in many cases you want to offer easy options to users.
@@ -139,19 +132,9 @@ The following video shows an example:
   Your browser does not support the video tag.
 </video>
 
-## Understanding context
+> **Note about branches and links**
+>
+> Botfront uses [Rasa checkpoints](https://rasa.com/docs/rasa/core/stories/#checkpoints) to accommodate branching and linking.
+> When you export your project to Rasa X or Rasa Open Source, checkpoints will be generated in the exported stories.
+> If you re-import those stories without changing the checkpoint names, Botfront will rebuild branches and links.
 
-The best way to understand context is to think about how we, humans, handle it.
-When we respond to someone else's _utterance_, we respond considering the history we have with that person.
-We remember facts, about the other person, but also the previous turns of the conversation.
-
-We'll address remembering facts in the slots section. Here, let's discuss remembering previous turns.
-
-If you say _Hi_ three times in a row to someone, the third response might be different from the first one.
-
-The following video shows how to replicate this with your assistant.
-
-<video autoplay muted loop width="100%" controls>
-  <source src="../../../videos/conversation_quickstart8.m4v" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>

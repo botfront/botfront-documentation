@@ -27,3 +27,16 @@ An important part of developing and maintaining a Rasa virtual assistant is keep
 However, it’s not always possible to infer everything that needs to go into the domain. For example, you might need to invoke a custom action, which in turn invokes another action, or makes use of a slot.
 
 ![Default domain management](../../../images/default_domain_management_1.png)
+
+### Linking a story to itself
+
+Linking a story to itself is only available on a story that has branches. For example, this can be used to create a menu dialogue, with a "go back" option looping back to the start of the story.
+However, when using this feature, the story that is linking to itself also needs to be a destination story of another story, that will serve as an introduction story to the loop. **Otherwise, the self linking story would not be reachable.**
+
+Schema of a self linking story (Menu story) with an intro story:
+
+![Self linking schema](../../../images/story_self_link.png)
+
+A sample self-linked story:
+
+![Self-linked story](../../../images/linking_cob_9.png)
