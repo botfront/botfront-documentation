@@ -1,7 +1,7 @@
 ---
 name: Processing incoming utterances
 route: /docs/rasa/nlu/incoming/utterances
-menu: Natural language understanding
+menu: Authoring conversations
 meta:
   - name: description
     content: Learn how to process Rasa incoming NLU utterances with Botfront.
@@ -35,9 +35,3 @@ In the example below, “Oui” was interpreted as “basics.yes” with a very 
 
 ![Delete redundant data](../../../images/nlu_activity_3.png)
 
-
-
-When you re-train a model, after new data has been added, the scores might not berelevant anymore. That's why they are replaced with a <i class="fas fa-sync-alt"></i> icon. The re-interpret button will send the next 20 utterances to the NLU server with the newly trained model so the scores reflect its latest state.
-
-
-![Re-evaluate](../../../images/nlu_activity_5.png )

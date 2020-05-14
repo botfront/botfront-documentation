@@ -34,6 +34,36 @@ And apply these versions to:
 
 ## Major versions
 
+When upgrading to a major version, always flush locally build images as follow:
+```
+docker rmi <folder_name>_rasa # e.g. docker rmi my_project_rasa
+docker rmi <folder_name>_actions
+```
+
+
+### 0.21.x -> 0.22.x
+
+#### Tracker store definitions
+In Settings > Endpoints, replace:
+```yaml
+tracker_store:
+  store_type: rasa_addons.core.tracker_stores.AnalyticsTrackerStore
+  url: 'http://botfront-api:8080'
+  project_id: 'bf'
+```
+
+with:
+
+```yaml
+tracker_store:
+  store_type:  'rasa_addons.core.tracker_stores.botfront.BotfrontTrackerStore'
+  url: 'http://botfront:3000/graphql' # Or the appropriate custom URL
+```
+
+### 0.20.x -> 0.21.x
+
+### 0.19.x -> 0.20.x
+
 ### 0.18.x -> 0.19.x
 
 #### Breaking changes

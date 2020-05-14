@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Getting Started",
+    "menu": [
+      "Setup",
+      "Quick Start",
+      "Usage with Rasa / X",
+      "Useful CLI commands"
+    ]
+  },
+  {
+    "name": "Configuring channels",
+    "menu": ["Overview", "Chat widget on your website", "Facebook Messenger"]
+  },
+  {
+    "name": "Authoring conversations",
+    "menu": [
+      "Getting started",
+      "Intents and entities",
+      "Evaluate understanding",
+      "Conversation context",
+      "Disambiguating user input",
+      "Processing incoming utterances",
+      "Advanced features"
+    ]
+  },
+  {
+    "name": "Conversational interactions"
+  }
+  ,
+  {
+    "name": "Server installation",
+    "menu": ["Kubernetes / Openshift", "Single server", "Configuration"]
+  },
+  {
+    "name": "Developers",
+    "menu": ["Custom Actions", "Extending Rasa", "Contributing to Botfront"]
+  },
+  { "name": "Administration", "menu": ["Users and Roles"] },
+  { "name": "Misc", "menu": ["Migration guide"] }
+]
