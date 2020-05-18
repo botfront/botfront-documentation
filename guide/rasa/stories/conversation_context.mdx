@@ -26,8 +26,8 @@ The following video shows how to replicate this with your assistant.
   Your browser does not support the video tag.
 </video>
 
-When predicting a response to **greet**, Rasa will consider the whole story, not just the latest user message.
-Therefore you can re-user the same intent several times in a row and give different responses.
+When predicting a response to **chitchat.greet**, Rasa will consider the whole story, not just the latest user message.
+Therefore you can re-use the same intent several times in a row and give different responses.
 
 # Using slots to remember facts
 
@@ -95,11 +95,14 @@ The status is declared with entities, but for the branching to work a slot must 
   Your browser does not support the video tag.
 </video>
 
-> **Since this section is about context**:
->
-> The combination of intent and entities **inform** and **status** can be re-used in other contexts.
-> Another story could be about asking the conditions required for an upgrade. The assistant would ask the member their status, and the user will answer with the same type of utterances as above.
-> ![](../../../images/slots_entities_categorical.png)
+<Important type="info" title="Since it's is about context">
+he combination of intent and entities <strong>inform</strong> and <strong>status</strong> can be re-used in other contexts:{' '}
+Users could have to declare their status in many different contexts.<br />
+If you were to write a story to answer users asking the conditions required for an upgrade, you can re-use the exact same intent and entities when listening to a user declaring a status:
+
+<img src="../../../images/slots_entities_categorical.png" width="100%" />
+
+</Important>
 
 #### Setting slots from custom actions
 

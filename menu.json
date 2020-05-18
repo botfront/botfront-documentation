@@ -25,7 +25,19 @@
     ]
   },
   {
-    "name": "Conversational interactions"
+    "name": "Proactive conversations",
+    "menu": [
+      "Overview",
+      "Behavioral triggers",
+      "Campaign triggers",
+      "Advanced options"
+    ]
+  },
+  {
+    "name": "Onboarding and guiding users",
+    "menu": [
+      "Onboarding and guiding users"
+    ]
   }
   ,
   {
