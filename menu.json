@@ -19,9 +19,16 @@
       "Intents and entities",
       "Evaluate understanding",
       "Conversation context",
-      "Disambiguating user input",
+      "Disambiguate user input",
       "Processing incoming utterances",
-      "Advanced features"
+      "Publish and deploy",
+      "Advanced topics"
+    ]
+  },
+  {
+    "name": "Workflow and enviroments",
+    "menu": [
+      "Overview"
     ]
   },
   {
