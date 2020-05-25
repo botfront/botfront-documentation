@@ -49,12 +49,11 @@
   },
   {
     "name": "Server installation",
-    "menu": ["Kubernetes / Openshift", "Single server", "Configuration"]
+    "menu": ["Kubernetes / Openshift", "Single server", "Configuration", "Migration"]
   },
   {
     "name": "Developers",
     "menu": ["Custom Actions", "Extending Rasa", "Contributing to Botfront"]
   },
-  { "name": "Administration", "menu": ["Users and Roles"] },
-  { "name": "Misc", "menu": ["Migration guide"] }
+  { "name": "Administration", "menu": ["Users and Roles"] }
 ]

@@ -1,36 +1,34 @@
 ---
-name: Migration guide
-route: /docs/migration
-menu: Misc
+name: Migration
+route: /docs/deployment/migration
+menu: Server installation
 ---
 
 # Migration guide
 
-As we haven't reached 1.x we consider minor versions as major and they could have breaking changes.
+As we haven't reached 1.x minor versions are considered major and could have breaking changes.
+
+
+<Important type='tip' title="Botfront and Rasa versions compatibility">
+Botfront and Rasa versions are tightly coupled. To avoid compatibility issues when installing or upgrading, use the <a target='_blank' href='https://npmjs.com/botfront'>CLI</a> and <a target='_blank' href='https://github.com/botfront/botfront-helm'>Helm charts</a> enforce compatibility.
+</Important>
 
 ## Minor versions
 
-For example `0.18.1` -> `0.18.3`
-Botfront will offer you to upgrade your project. Part of the process is automated, buty you will still have **ONE thing** to do manually:
-Take:
+Minor upgrades are generally seamless. 
 
-- Take `rasa-for-botfront` image version in `.botfront/botfront.yaml`. In the following it would be `v1.5.1-bf.10` (with the `v`)
-- Take `rasa-sdk` image version in `.botfront/botfront.yaml`. In the following it would be `1.3.2` (without the `v`)
+#### With the CLI
 
-```yaml
-images:
-  default:
-    ...
-    rasa: botfront/rasa-for-botfront:v1.5.1-bf.10
-    actions: rasa/rasa-sdk:1.3.2
-    ...
-```
+You can run `botfront upgrade` in your terminal.
 
-And apply these versions to:
+#### With Kubernetes
 
-- `rasa/Dockerfile`
-- `actions/Dockerfile`
-- `actions/Dockerfile.production`
+You can upgrade our [Helm Charts](https://github.com/botfront/botfront-helm).
+
+<Important type='tip' title="Make sure you install the same chart versions">
+Although we offer seperate charts for the Botfront framework and Rasa itself, they both have the same version. Installing the same chart version for both Botfront and Rasa ensures that Rasa and Botfront versions are compatible.
+</Important>
+
 
 ## Major versions
 
@@ -108,3 +106,8 @@ nlg:
 6. Restart Rasa with `botfront restart rasa`
 7. Train
 8. You're done, have fun :)
+
+## Manual upgrades
+
+Always check that the Botfront and Rasa versions you install are compatible.
+You can check this file to find out which version of Rasa corresponds to the Botfront version you are upgrading to: `https://github.com/botfront/botfront/blob/vX.X.X/cli/project-template/.botfront/botfront.yml` (replace `vX.X.X` with your version, e.g: `v0.24.0`)
