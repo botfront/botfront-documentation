@@ -32,6 +32,13 @@
     ]
   },
   {
+    "name": "Digital adoption",
+    "menu": [
+      "Overview",
+      "Creating tutorials"
+    ]
+  },
+  {
     "name": "Proactive conversations",
     "menu": [
       "Overview",
@@ -40,13 +47,6 @@
       "Advanced options"
     ]
   },
-  {
-    "name": "Onboarding and guiding users",
-    "menu": [
-      "Onboarding and guiding users"
-    ]
-  }
-  ,
   {
     "name": "Server installation",
     "menu": ["Kubernetes / Openshift", "Single server", "Configuration"]
