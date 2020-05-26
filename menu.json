@@ -32,10 +32,11 @@
     ]
   },
   {
-    "name": "Digital adoption",
+    "name": "Onscreen guidance",
     "menu": [
       "Overview",
-      "Creating tutorials"
+      "Highlighting page elements",
+      "Adding interactivity"
     ]
   },
   {
