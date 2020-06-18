@@ -9,7 +9,7 @@ meta:
     content: botfront installation deployment
 ---
 
-Available in: <Premium plan="Enterprise Edition" />
+Available in: <Premium plan="Botfront Enterprise" />
 
 # Users & Roles
 
