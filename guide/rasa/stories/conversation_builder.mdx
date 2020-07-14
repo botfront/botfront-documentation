@@ -4,7 +4,7 @@ route: /docs/rasa/conversation-builder/
 menu: Authoring conversations
 meta:
   - name: description
-    content: The conversation builder is the most intuitive frontent UI for Rasa.
+    content: Botfront's conversation builder is an intuitive interface to author comprehensive Rasa stories and populate your NLU model on a single screen. Bofront maintains stories and NLU data in their native format so you don't have to edit them manually anymore.
   - name: keywords
     content: rasa ui frontend
 ---
@@ -13,7 +13,8 @@ meta:
 
 Botfront is a fully featured conversational platform with intuitive interfaces to create context-aware virtual assistants.
 
-Botfront is deeply integrated with [Rasa](https://github.com/rasaHQ/rasa), an open source library featuring the most advanced open source conversational AI technology.
+Botfront is deeply integrated with [Rasa](https://github.com/rasaHQ/rasa).
+If you are already familiar with Rasa, the conversation builder will let you focus on conversation authoring and handle markdown and yaml files for you.
 
 This integration allows Botfront to offer advanced Natural Language Understanding capabilities in any language and context driven dialogue management.
 
@@ -23,7 +24,7 @@ This integration allows Botfront to offer advanced Natural Language Understandin
 Similarly to human-to-human interactions, human-to-machine interactions are based on dialogue turns.
 A turn consists in a **user input** followed by a **virtual assistant response**.
 
-In Botfront, you design automated conversations in segments called **stories**.
+In Botfront, you can design automated conversations in segments called **stories**.
 
 Let's start with a simple example, A user greets the virtual assistant and the bot answers.
 
@@ -150,5 +151,4 @@ The following video shows an example:
 > Botfront uses [Rasa checkpoints](https://rasa.com/docs/rasa/core/stories/#checkpoints) to accommodate branching and linking.
 > When you export your project to Rasa X or Rasa Open Source, checkpoints will be generated in the exported stories.
 > If you re-import those stories without changing the checkpoint names, Botfront will rebuild branches and links.
-
 
