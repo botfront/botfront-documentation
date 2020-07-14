@@ -1,13 +1,18 @@
 ---
-name: Migration
-route: /docs/deployment/migration
-menu: Server installation
+name: Migration guide
+route: /docs/installation/migration-guide
+menu: Installation
+meta:
+  - name: description
+    content: "Migration instructions for Rasa assistants made with Botfront"
+
 ---
 
 # Migration guide
 
-As we haven't reached 1.x minor versions are considered major and could have breaking changes.
+This sections indicates how to migrate your assistant to a new Botfront version.
 
+As we haven't reached 1.x minor versions are considered major and could have breaking changes.
 
 <Important type='tip' title="Botfront and Rasa versions compatibility">
 Botfront and Rasa versions are tightly coupled. To avoid compatibility issues when installing or upgrading, use the <a target='_blank' href='https://npmjs.com/botfront'>CLI</a> and <a target='_blank' href='https://github.com/botfront/botfront-helm'>Helm charts</a> enforce compatibility.
@@ -15,7 +20,7 @@ Botfront and Rasa versions are tightly coupled. To avoid compatibility issues wh
 
 ## Minor versions
 
-Minor upgrades are generally seamless. 
+Minor upgrades are generally seamless.
 
 #### With the CLI
 

@@ -1,18 +1,5 @@
 [
   {
-    "name": "Getting Started",
-    "menu": [
-      "Setup",
-      "Quick Start",
-      "Usage with Rasa / X",
-      "Useful CLI commands"
-    ]
-  },
-  {
-    "name": "Configuring channels",
-    "menu": ["Overview", "Chat widget on your website", "Facebook Messenger"]
-  },
-  {
     "name": "Authoring conversations",
     "menu": [
       "Getting started",
@@ -24,14 +11,13 @@
       "Creating custom actions",
       "Processing incoming utterances",
       "Publish and deploy",
+      "Import (export) from (to) Rasa",
       "Advanced topics"
     ]
   },
   {
-    "name": "Workflow and enviroments",
-    "menu": [
-      "Overview"
-    ]
+    "name": "Configuring channels",
+    "menu": ["Overview", "Chat widget on your website", "Facebook Messenger"]
   },
   {
     "name": "Onscreen guidance",
@@ -51,8 +37,13 @@
     ]
   },
   {
-    "name": "Server installation",
-    "menu": ["Kubernetes / Openshift", "Single server", "Configuration", "Migration"]
+    "name": "Installation",
+    "menu": [
+      "On your local machine",
+      "On servers or clusters",
+      "Using the CLI",
+      "Migration guide"
+    ]
   },
   {
     "name": "Developers",
