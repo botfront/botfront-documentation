@@ -9,15 +9,17 @@ meta:
     content: botfront installation deployment
 ---
 
+# Install Botfront on servers or clusters
+
 This section will explain how to deploy your Rasa assistant with Botfront on a remote server or Kubernetes / OpenShift cluster
 
-# Kubernetes / OpenShift installation
+## Kubernetes / OpenShift installation
 
 We provide Helm charts to install Botfront and Rasa projects on your cluster.
 
 Please head to http://github.com/botfront/botfront-helm and follow the instructions.
 
-# Single server installation (VM)
+## Single server installation (VM)
 
 An alternative option is to deploy all the services on a single machine. You can get a virtual machine from the Cloud Provider of your choice. We recommend a machine with at least 1 CPU and 2 Gb of RAM
 
@@ -91,9 +93,9 @@ rasa_addons.core.channels.webchat.WebchatInput:
 9. Botfront is ready to use.
 
 
-# Configuration
+## Configuration
 
-## Services and Docker images
+### Services and Docker images
 
 The table below lists all the services that can be used with Botfront.
 
@@ -118,7 +120,7 @@ Also, be very careful with your choice regarding MongoDB. If you decide to just 
 
 Using a hosted service such as MongoDB Atlas is highly recommended, some of them even include a free plan that will be more than enough for small projects.
 
-## Environment variables
+### Environment variables
 
 The following table shows the environment variables required by each service. Be sure to make those available as arguments or in the manifest files of your deployment
 
@@ -152,7 +154,7 @@ The following table list environment variables used to configure logging within 
 | `AUDIT_LOGGER_NAME`             | The name of the audit logger in Stackdriver (Only on Entreprise-edition)                                                                                                   | Any string                         | botfront_log_audit   |
 
 
-## Volumes
+### Volumes
 
 Although volumes are technically not required for Botfront to run and work, if you do not mount them your data will be gone when containers are destroyed.
 
@@ -164,7 +166,7 @@ Although volumes are technically not required for Botfront to run and work, if y
 
 `/app/models` should be mounted on the same location so when Rasa restarts it can load the latest trained model.
 
-## MongoDB database considerations
+### MongoDB database considerations
 
 It is **highly** recommended (but optional) to provide an oplog url with `MONGO_OPLOG_URL`. This will improve the reactivity of the platform as well as reduce the network throughput between MongoDB and Botfront.
 
@@ -174,7 +176,7 @@ Choose a very short database name (e.g `bf`) and not too long response names to 
 
 </Important>
 
-## Indicative minimal technical requirements
+### Indicative minimal technical requirements
 
 Those are the minimal requirements:
 
@@ -185,7 +187,7 @@ Those are the minimal requirements:
 | duckling                     | 512 Mb | 0.5 |
 | rasa (depending on NLU pipeline and policies) |   1-8 Gb |   1-4 |
 
-## Endpoints
+### Endpoints
 
 Endpoints let you define how your Rasa instance communicates with Botfront and the actions server:
 

@@ -15,7 +15,8 @@ Proactive conversations are only available on your website with the Botfront cha
 </Important>
 
 
-## Engage with users based on browsing behavior
+
+# Engage with users based on browsing behavior
 
 **Use case example**: an insurance company have a special offer for customers subscribing a bundled home and car policy.
 They want to engage with users browsing both _home insurance_ and _car insurance_ product pages.
@@ -32,20 +33,20 @@ Since trigger stories are initiated by the virtual assistant, they can start wit
 However, if you want to make the same story accessible from a user message you can start it with a user utterance or payload.
 </Important>
 
-#### Enforce a sequence
+## Enforce a sequence
 
 The example above does not require that pages are visited in a particular order. We are simply looking for an interest in both products.
 If order matters to you, check this option:
 ![](../../images/proactive_conversations/trigger_sequence.png)
 
-#### Partial or full match
+## Partial or full match
 
 By default, all subsequent paths will be matched. For example, the url `.../policies/home/condos` would activate the trigger.
 If you don't want that you can uncheck this option:
 ![](../../images/proactive_conversations/triggers_subsequent.png)
 
 
-#### Protocol, host, and port
+## Protocol, host, and port
 Protocol, host, and port are always ignored. Which means that if you set `http://localhost:8000/product/features` it will also match `https://yoursite.com/product/features`.
 
 ## Engage with returning visitors

@@ -1,7 +1,7 @@
 ---
 name: Highlighting page elements
 route: /docs/onscreen-guidance/highlighting
-menu: Onscreen guidance
+menu: On screen guidance
 meta:
   - name: description
     content: Digital adoption. Create tutorial delivered proactively or on demand
@@ -12,11 +12,17 @@ meta:
 import { FaEllipsisV } from "react-icons/fa";
 
 
+
 Available in: <Premium plan="Botfront Cloud" /> <Premium plan="Botfront Enterprise" />
+
+# On screen guidance
+
+On screen guidance combines conversational logic with oon screen indications.
+You can use it to implement in-app onboarding, training or support
 
 ## Prerequisite
 
-Onscreen guidance combines conversational logic with onscreen indications.
+
 We recommend using Chrome with the [Get Unique CSS Selector](https://chrome.google.com/webstore/detail/get-unique-css-selector/lkfaghhbdebclkklgjhhonadomejckai) extension installed.
 
 This extension allows to quickly find and copy CSS selectors (unique identifiers of elements on your page)
@@ -25,14 +31,14 @@ This extension allows to quickly find and copy CSS selectors (unique identifiers
 
 Let's do something similar to the demo you can find on our website. The visitor can ask to start the demo, and the first step is to highlight the **Resources** menu.
 
-#### 1. Let's first create our story
+### 1. Let's first create our story
 
 <video autoplay muted loop width="100%" controls>
   <source src="../../videos/guiding_start_story.m4v" type="video/mp4"/>
   Your browser does not support the video tag.
 </video>
 
-#### 2. Enable the chrome extension
+### 2. Enable the chrome extension
 
 Now we need to let Botfront know which element of the page to highlight.
 Open your website in a different tab and enable the chrome extension you installed in the previous step by clicking the icon in your extensions bar.
@@ -42,7 +48,7 @@ You should see a small blue rectangle:
   Your browser does not support the video tag.
 </video>
 
-#### 3. Get your selector
+### 3. Get your selector
 
 Now that your extension is enabled, you can find the _selector_ of the **Resources** menu item: hover it with your mouse, **right-click** and select **Copy unique selector to clipboard**:
 
@@ -51,7 +57,7 @@ Now that your extension is enabled, you can find the _selector_ of the **Resourc
   Your browser does not support the video tag.
 </video>
 
-#### 4. Create your highlight
+### 4. Create your highlight
 
 Back to your story, you can paste (`Cmd/Ctrl + V`) the selector copied above as shown below:
 
@@ -67,9 +73,9 @@ Back to your story, you can paste (`Cmd/Ctrl + V`) the selector copied above as 
   Your browser does not support the video tag.
 </video>
 
-#### 5. Showing the tooltip
+### 5. Showing the tooltip
 
-When showing things onscreen, you generally want the chat widget to be closed and the message attached to the higlighted element.
+When showing things oon screen, you generally want the chat widget to be closed and the message attached to the higlighted element.
 To do this, simply force close the widget on your message.
 
 <video autoplay muted loop width="100%" controls>
@@ -85,7 +91,7 @@ And the result:
 </video>
 
 
-#### 6. Customizing the hightlighting style
+### 6. Customizing the hightlighting style
 
 By default, Botfront will surround the DOM element you specify with a blinking green rectangle. You can change that is different ways:
 
@@ -94,7 +100,7 @@ By default, Botfront will surround the DOM element you specify with a blinking g
 - You can write CSS directly in Botfront
 - You can specify the name of an existing CSS class on your site.
 
-#### 7. Handling responsiveness
+### 7. Handling responsiveness
 
 If you site or app is responsive, some selectors will be available only at certain screen sizes.
 In our example, the **Resources** menu item is hidden under the _hamburger_ menu on mobile. To access **Resources** you need to open the _hamburger_ first:

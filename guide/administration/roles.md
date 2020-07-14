@@ -11,7 +11,7 @@ meta:
 
 Available in: <Premium plan="Botfront Enterprise" />
 
-# Users & Roles
+# RBAC (Role based access control)
 
 The Enterprise Edition allows you to create multiple projects and users.
 Additionnally you can assign roles to users.
