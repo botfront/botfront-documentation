@@ -1,5 +1,6 @@
 ---
 name: Users and Roles
+title: RBAC in Botfront
 route: /docs/administration/users-and-roles/
 menu: Administration
 meta:
