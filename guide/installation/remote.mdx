@@ -177,6 +177,579 @@ Choose a very short database name (e.g `bf`) and not too long response names to 
 
 </Important>
 
+#### Indexes
+
+If you delete a collection from the database when developing you might need to recreate the indexes manually, so here is a list of all the indexes that should exist on the specified collection.
+
+<details>
+  <summary>Indexes for activity</summary>
+  
+  ```javascript
+  [
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.activity"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"text" : 1,
+			"modelId" : 1,
+			"env" : 1
+		},
+		"name" : "text_1_modelId_1_env_1",
+		"ns" : "bf.activity",
+		"background" : true
+	}
+]
+  ```
+  
+</details>
+
+
+<details>
+  <summary>Indexes for admin_settings</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.admin_settings"
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for botResponses</summary>
+
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.botResponses"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"key" : 1,
+			"projectId" : 1
+		},
+		"name" : "key_1_projectId_1",
+		"ns" : "bf.botResponses",
+		"background" : true
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "textIndex_text",
+		"ns" : "bf.botResponses",
+		"background" : true,
+		"weights" : {
+			"textIndex" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for conversations</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.conversations"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"projectId" : 1,
+			"status" : 1,
+			"updatedAt" : -1
+		},
+		"name" : "projectId_1_status_1_updatedAt_-1",
+		"ns" : "bf.conversations"
+	}
+]
+  ```
+</details>
+<details>
+  <summary>Indexes for core_policies</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.core_policies"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"projectId" : 1,
+			"updatedAt" : -1
+		},
+		"name" : "projectId_1_updatedAt_-1",
+		"ns" : "bf.core_policies"
+	}
+]
+  ```
+</details>
+<details>
+  <summary>Indexes for credentials</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.credentials"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"projectId" : 1,
+			"updatedAt" : -1
+		},
+		"name" : "projectId_1_updatedAt_-1",
+		"ns" : "bf.credentials"
+	}
+]
+  ```
+</details>
+<details>
+  <summary>Indexes for endpoints</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.endpoints"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"projectId" : 1,
+			"updatedAt" : -1
+		},
+		"name" : "projectId_1_updatedAt_-1",
+		"ns" : "bf.endpoints"
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for meteor_accounts_loginServiceConfiguration</summary>
+
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.meteor_accounts_loginServiceConfiguration"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"service" : 1
+		},
+		"name" : "service_1",
+		"ns" : "bf.meteor_accounts_loginServiceConfiguration"
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for migrations</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.migrations"
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for nlu_evaluations:</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.nlu_evaluations"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"modelId" : 1
+		},
+		"name" : "modelId_1",
+		"ns" : "bf.nlu_evaluations"
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for nlu_instances</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.nlu_instances"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"projectId" : 1
+		},
+		"name" : "projectId_1",
+		"ns" : "bf.nlu_instances"
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for nlu_models</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.nlu_models"
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for nlu_models</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.nlu_models"
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for projects</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.projects"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"name" : 1
+		},
+		"name" : "c2_name",
+		"ns" : "bf.projects",
+		"background" : true,
+		"sparse" : false
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"disabled" : 1
+		},
+		"name" : "c2_disabled",
+		"ns" : "bf.projects",
+		"background" : true,
+		"sparse" : false
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"updatedAt" : -1
+		},
+		"name" : "c2_updatedAt",
+		"ns" : "bf.projects",
+		"background" : true,
+		"sparse" : false
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for slots</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.slots"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"projectId" : 1,
+			"name" : 1
+		},
+		"name" : "projectId_1_name_1",
+		"ns" : "bf.slots"
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for stories</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.stories"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "textIndex.contents_text_textIndex.info_text",
+		"ns" : "bf.stories",
+		"weights" : {
+			"textIndex.contents" : 1,
+			"textIndex.info" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+  ```
+</details>
+
+<details>
+  <summary>Indexes for storyGroups</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.storyGroups"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"projectId" : 1,
+			"name" : 1
+		},
+		"name" : "projectId_1_name_1",
+		"ns" : "bf.storyGroups"
+	}
+]
+  ```
+</details>
+
+
+<details>
+  <summary>Indexes for users</summary>
+  
+  ```javascript
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "bf.users"
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"username" : 1
+		},
+		"name" : "username_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"emails.address" : 1
+		},
+		"name" : "emails.address_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"services.resume.loginTokens.hashedToken" : 1
+		},
+		"name" : "services.resume.loginTokens.hashedToken_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"services.resume.loginTokens.token" : 1
+		},
+		"name" : "services.resume.loginTokens.token_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"services.resume.haveLoginTokensToDelete" : 1
+		},
+		"name" : "services.resume.haveLoginTokensToDelete_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"services.resume.loginTokens.when" : 1
+		},
+		"name" : "services.resume.loginTokens.when_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"services.password.reset.when" : 1
+		},
+		"name" : "services.password.reset.when_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"services.email.verificationTokens.token" : 1
+		},
+		"name" : "services.email.verificationTokens.token_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	},
+	{
+		"v" : 2,
+		"unique" : true,
+		"key" : {
+			"services.password.reset.token" : 1
+		},
+		"name" : "services.password.reset.token_1",
+		"ns" : "bf.users",
+		"sparse" : true
+	}
+]
+  ```
+</details>
+
+
+
+
+
 ### Indicative minimal technical requirements
 
 Those are the minimal requirements:
