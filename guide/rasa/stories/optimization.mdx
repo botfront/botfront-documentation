@@ -13,6 +13,29 @@ permalink: /rasa/:slug
 
 # Advanced topics
 
+## Advanced search
+
+Available in: <Premium plan="Botfront Cloud" />  <Premium plan="Botfront Enterprise" />
+
+You can use the search bar, left of the training button in the top right corner, to search through your stories.
+
+You'll notice that when you first click on it you can use smart searches.
+
+Here is a recap of the special search strings you can use.
+
+
+| String                    | Description                                                                |
+| ------------------------- | ---------------------------------------------------------------------------|
+| `with:triggers`           | This will show stories with trigger rules.                                 |
+| `with:highlights`         | This will show stories that contain responses that use onscreen guidance.  |
+| `with:custom_style`       | This will show stories that contain responses with custom styles.          |
+| `status:unpublished`      | This will show unpublished stories.                                        |
+| `status:published`        | This will show published stories.                                          |
+
+You can combine several of those smart searches to refine your search criterias.
+
+For instance, the query `with:triggers with:highlights welcome` will yield stories that have at least one trigger rule, one response with onscreen guidance and that contain the word `welcome`.
+
 ## Explicit domain declaration
 
 An important part of developing and maintaining a Rasa virtual assistant is keeping [domain files](https://rasa.com/docs/rasa/core/domains/) up to date. Thankfully, Botfront makes this easier by automatically parsing the contents of your stories and extracting the different actions, entities, slots, etc. referenced within.
