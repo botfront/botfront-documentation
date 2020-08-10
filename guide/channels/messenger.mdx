@@ -1,15 +1,18 @@
 ---
 name: Facebook Messenger
+title: Deploy your Rasa assistant to Facebook Messenger
 route: /docs/channels/messenger
 menu: Configuring channels
 meta:
 - name: description
-  content: Deploy your Rasa assistant with Botfront on Facebook Messenger.
+  content: Deploy your Rasa assistant with Botfront on Facebook Messenger. Follow this tutorial and get your chatbot deployed on Messenger in minutes.
 - name: keywords
   content: botfront stories nlu rasa slots deployment facebook messenger
 ---
 
-# Facebook Messenger
+# Deploy on Facebook Messenger
+
+In this tutorial we'll show how to deploy the Rasa assistant made with Botfront on Facebook Messenger.
 
 ## Create a Facebook page (if you don't have one already)
 
@@ -50,7 +53,7 @@ A Facebook Messenger chatbot is also tied to a Facebook App. Follow these steps 
 - Click on **Copy** and paste it direcly in the **channel** section and save it:
 
 ```yaml
-rasa_addons.core.channels.messenger.FBmessenger:
+rasa_addons.core.channels.facebook_messenger.FBMessengerInput:
   page-access-token: <your token>
   ...
 ```
@@ -62,7 +65,7 @@ rasa_addons.core.channels.messenger.FBmessenger:
     ![image alt text](../../images/messenger_channel_step11.png)
 
 ```yaml
-rasa_addons.core.channels.messenger.FBmessengerInput:
+rasa_addons.core.channels.facebook_messenger.FBMessengerInput:
   page-access-token: <your token>
   secret: <your secret>
   ...
@@ -71,7 +74,7 @@ rasa_addons.core.channels.messenger.FBmessengerInput:
 11. Add a verify token. It's a string of your choice, just pick something not too obvious.
 
 ```yaml
-rasa_addons.core.channels.messenger.FBmessengerInput:
+rasa_addons.core.channels.facebook_messenger.FBMessengerInput:
   page-access-token: <your token>
   secret: <your secret>
   verify: <your verify token>

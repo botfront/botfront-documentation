@@ -1,5 +1,6 @@
 ---
 name: Users and Roles
+title: RBAC in Botfront
 route: /docs/administration/users-and-roles/
 menu: Administration
 meta:
@@ -9,9 +10,9 @@ meta:
     content: botfront installation deployment
 ---
 
-Available in: <Premium plan="Enterprise Edition" />
+Available in: <Premium plan="Botfront Enterprise" />
 
-# Users & Roles
+# RBAC (Role based access control)
 
 The Enterprise Edition allows you to create multiple projects and users.
 Additionnally you can assign roles to users.
@@ -32,7 +33,7 @@ While you can create arbitrary roles and permissions in the UI, you can only ass
 
 | Role            | Description                                                                                             | constraint    |
 |-----------------|---------------------------------------------------------------------------------------------------------|---------------|
-| `project-admin` | Can access and edit all resources of a project. Extends `projects:w`,`users:w`                          | `[projectId]` |
+| `project-admin` | Can access and edit all resources of a project. Extends `projects:w`, `users:w`                          | `[projectId]` |
 | `global-admin`  | Can access and edit all resources of all projects and edit global settigs. Extends All permissions      |               |
 
 
@@ -74,8 +75,9 @@ To give someone the **global-admin** role, you must select **GLOBAL** in the pro
 | `triggers:r`        | Can access story triggers. Extends `stories:r`.                                                                                                                                       | `[projectId]` |
 | `triggers:w`        | Can add, edit, or delete story triggers. Extends `triggers:r`.                                                                                                                        | `[projectId]` |
 | `incoming:r`        | Can read incoming data. Extends `stories:r`.                                                                                                                                          | `[projectId]` |
-| `incoming:w`        | Can process incoming data. Extends `stories:r`, `nlu-data:w`, `incoming:r`.                                                                                                           | `[projectId]` |
-| `analyics:r`        | Can view and download analytics data. Extends `incoming:r`.                                                                                                                           | `[projectId]` |
+| `incoming:w`        | Can process incoming data. Extends `nlu-data:w`, `incoming:r`.                                                                                                           | `[projectId]` |
+| `analytics:r`        | Can view and download analytics data. Extends `incoming:r`.                                                                                                                           | `[projectId]` |
+| `analytics:w`        | Can edit analytics dashboards. Extends `analytics:r`.                                                                                                                           | `[projectId]` |
 | `projects:r`        | Can read everything in a project and access a project settings.  Extends: `incoming:r`, `triggers:r`, `stories:r`, `responses:r`, `nlu-data:r`, `analytics:r`                         | `[projectId]` |
 | `projects:w`        | Can edit project meta information and settings. Extends `projects:r`. If no `projectId` constraint is specified this permission allows adding, editing, and removing projects.        | `[projectId]` |
 | `users:r`           | Can access user information. Extends `roles:r`                                                                                                                                        | `[projectId]` |
