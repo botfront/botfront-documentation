@@ -42,6 +42,7 @@
     "menu": [
       "On your local machine",
       "On servers or clusters",
+      "Integration",
       "Using the CLI",
       "Migration guide"
     ]
