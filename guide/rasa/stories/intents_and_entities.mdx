@@ -283,9 +283,9 @@ In the example below:
     chitchat.greet: []
 ```
 
-## Final thoughts
+## Best practices
 
-### Add semantic variety to your model
+## Add semantic variety to your model
 
 Introducing variety is key to build a capable model.
 
@@ -318,3 +318,110 @@ We have seen above how gazettes can help with typos in entities but we were also
 If your users do spelling mistakes, then your training data should have some too.
 
 </Important>
+
+
+## Recommended NLU pipelines
+
+### Language agnostic pipeline
+
+The following pipeline will generally do well for all languages where words are separated by whitespaces.
+
+```yaml
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 200
+  - name: rasa_addons.nlu.components.gazette.Gazette
+  - name: rasa_addons.nlu.components.intent_ranking_canonical_example_injector.IntentRankingCanonicalExampleInjector
+  - name: EntitySynonymMapper
+```
+
+
+### English
+
+You can provide some pre-existing language knowledge using ConveRT embeddings.
+
+```yaml
+pipeline:
+  - name: ConveRTTokenizer
+  - name: LexicalSyntacticFeaturizer
+  - name: ConveRTFeaturizer
+  - name: RegexFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 200
+  - name: rasa_addons.nlu.components.gazette.Gazette
+  - name: rasa_addons.nlu.components.intent_ranking_canonical_example_injector.IntentRankingCanonicalExampleInjector
+  - name: EntitySynonymMapper
+  ```
+
+### Other languages (with Spacy)
+
+You can use Spacy language models available in [many languages](https://spacy.io/models).
+Note that in our experience, only the biggest models tend to be really useful.
+See [this blog post](https://botfront.io/blog/better-intent-classification-and-entity-extraction-with-diet-classifier-pipeline-optimization#things-to-consider-when-using-pre-trained-language-models-in-your-rasa-nlu-pipeline) if you are weighing pros and cons of pre-trained embeddings.
+
+```yaml
+pipeline:
+  - name: SpacyNLP
+    model: "en_core_web_lg" # or any language model
+    case_sensitive: false
+  - name: SpacyTokenizer
+  - name: LexicalSyntacticFeaturizer
+  - name: SpacyFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 200
+  - name: rasa_addons.nlu.components.gazette.Gazette
+  - name: rasa_addons.nlu.components.intent_ranking_canonical_example_injector.IntentRankingCanonicalExampleInjector
+  - name: EntitySynonymMapper
+```
+
+Note that you must install the model in your Rasa image. For example, in Botfront Open Source, you can change the Dockerfile as follows:
+
+```bash
+# in rasa/Dockerfile
+
+ARG RASA_IMAGE
+FROM ${RASA_IMAGE}
+
+# Change back to root user to install dependencies
+USER root
+
+COPY . /custom/extensions/.
+
+RUN pip install --no-cache-dir -r /custom/extensions/requirements.txt
+RUN pip install -e /custom/extensions/.
+
+#### FROM HERE ####
+RUN python -m spacy download en_core_web_lg # or the model of your choice
+RUN python -m spacy link en_core_web_lg en
+#### TO HERE ####
+
+# Switch back to non-root to run code
+USER 1001%
+```
+
+Then rebuild your image and restart:
+
+```bash
+botfront down
+docker-compose build
+# if you encounter problems you can delete the existing image:
+# docker rmi [project_folder_name]_rasa
+botfront up
+```
