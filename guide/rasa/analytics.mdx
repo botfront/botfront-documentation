@@ -60,11 +60,11 @@ The filtered conversations appear in blue in the chart.
 
 | Parameter             | What it does |
 | --------------------- | ------------ |
-| **Show denominator** | Display the total number of conversations of the selected type on the chart. |
+| **Show total conversations** | Display the total number of conversations of the selected type on the chart. |
 | **User initiated conversations** | Display conversations initiated by a user message (or an starting intent such as the [`initPayload`](/docs/channels/webchat/#page-specific-intro-message) in the chat widget). |
 | **Triggered conversations** | Display conversations [initiated proactively](/docs/proactive-conversations/behavioral-triggers). |
 | **Minimum number of utterances** | Display conversations with at least a certain number of user utterances. Since the first utterance is generally triggered by the channel to display a welcome message (see [`initPayload`](/docs/channels/webchat/#page-specific-intro-message)), it is ignored. Which means the typical `get_started` utterance triggered by the `initPayload` or other channels such as [Facebook Messenger](https://botfront.io/docs/channels/messenger) does not count as a user utterance. |
-| **Filter intents and actions** | Display conversations including or excluding a set of intents and actions. |
+| **Filter conversation events** | Display conversations including or excluding a set of intents and actions. |
 
 ## Conversation duration
 
@@ -105,7 +105,7 @@ A common use case is to use this widget to measure fallbacks frequency.
 
 ## Conversations funnel
 
-This card tracks engagement and drop-off over an ordered sequence of events. The matches are instances where the sequence of event inclusions and exclusions specified in the selected sequence filter are found in order in a conversation. The engagement of a triggered story can be measured by starting the selected sequence with the action or bot response that immediately follows the start of the story.
+This card tracks engagement and drop-off over an ordered sequence of events. The matches are instances where the sequence of event inclusions and exclusions specified in the selected sequence filter are found in order in a conversation. The engagement of a triggered story can be measured by starting the selected sequence with the action or bot response that immediately follows the start of the story. Note that bot responses in a form are not a valid method for tracking engagement and slots should be used instead.
 
 | Parameter             | What it does |
 | --------------------- | ------------ |
