@@ -17,6 +17,12 @@
     ]
   },
   {
+    "name": "Monitoring & Analyzing",
+    "menu": [
+      "Analytics"
+    ]
+  },
+  {
     "name": "Configuring channels",
     "menu": ["Overview", "Chat widget on your website", "Facebook Messenger"]
   },
