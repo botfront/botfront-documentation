@@ -3,6 +3,7 @@
     "name": "Authoring conversations",
     "menu": [
       "Getting started",
+      "Conversation builder",
       "Intents and entities",
       "Evaluate understanding",
       "Conversation context",
